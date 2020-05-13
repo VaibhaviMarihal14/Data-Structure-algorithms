@@ -1,0 +1,97 @@
+Quick Sort:
+
+Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. 
+
+The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x. All this should be done in linear time.
+
+
+
+
+Analysis of QuickSort
+Time taken by QuickSort in general can be written as following.
+
+ T(n) = T(k) + T(n-k-1) + theta(n)
+The first two terms are for two recursive calls, the last term is for the partition process. k is the number of elements which are smaller than pivot.
+
+the worst case would occur when the array is already sorted in increasing or decreasing order. 
+Following is recurrence for worst case.
+
+ T(n) = T(0) + T(n-1) + theta(n)
+which is equivalent to  
+ T(n) = T(n-1) + theta(n)
+The solution of above recurrence is theta(n*2).
+
+
+
+
+Best Case: The best case occurs when the partition process always picks the middle element as pivot. Following is recurrence for best case.
+
+ T(n) = 2T(n/2) + \theta(n)
+The solution of above recurrence is \theta(nLogn). It can be solved using case 2 of Master Theorem.
+
+
+
+Program :
+
+class QuickSort 
+{ 
+	int partition(int arr[], int low, int high) 
+	{ 
+		int pivot = arr[high]; 
+		int i = (low-1); 
+		for (int j=low; j<high; j++) 
+		{  
+			if (arr[j] < pivot) 
+			{ 
+				i++; 
+
+				int temp = arr[i]; 
+				arr[i] = arr[j]; 
+				arr[j] = temp; 
+			} 
+		} 
+
+		int temp = arr[i+1]; 
+		arr[i+1] = arr[high]; 
+		arr[high] = temp; 
+
+		return i+1; 
+	} 
+
+	void sort(int arr[], int low, int high) 
+	{ 
+		if (low < high) 
+		{ 
+			int pi = partition(arr, low, high); 
+
+			sort(arr, low, pi-1); 
+			sort(arr, pi+1, high); 
+		} 
+	} 
+
+	static void printArray(int arr[]) 
+	{ 
+		int n = arr.length; 
+		for (int i=0; i<n; ++i) 
+			System.out.print(arr[i]+" "); 
+		System.out.println(); 
+	} 
+
+	public static void main(String args[]) 
+	{ 
+		int arr[] = {10, 7, 8, 9, 1, 5}; 
+		int n = arr.length; 
+
+		QuickSort ob = new QuickSort(); 
+		ob.sort(arr, 0, n-1); 
+
+		System.out.println("sorted array"); 
+		printArray(arr); 
+	} 
+} 
+
+Output:
+
+Sorted array:
+1 5 7 8 9 10
+
