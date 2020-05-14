@@ -1,0 +1,67 @@
+Initialize three pointers prev as NULL, curr as head and next as NULL.
+Iterate trough the linked list. In loop, do following.
+// Before changing next of current,
+// store next node
+next = curr->next
+// Now change next of current
+// This is where actual reversing happens
+curr->next = prev
+
+// Move prev and curr one step forward
+prev = curr
+curr = next
+
+
+
+
+class Node: 
+
+	def __init__(self, data): 
+		self.data = data 
+		self.next = None
+
+class LinkedList: 
+
+	def __init__(self): 
+		self.head = None
+
+	def reverse(self): 
+		prev = None
+		current = self.head 
+		while(current is not None): 
+			next = current.next
+			current.next = prev 
+			prev = current 
+			current = next
+		self.head = prev 
+
+	def push(self, new_data): 
+		new_node = Node(new_data) 
+		new_node.next = self.head 
+		self.head = new_node 
+
+	def printList(self): 
+		temp = self.head 
+		while(temp): 
+			print temp.data, 
+			temp = temp.next
+
+
+llist = LinkedList() 
+llist.push(20) 
+llist.push(4) 
+llist.push(15) 
+llist.push(85) 
+
+print "Given Linked List"
+llist.printList() 
+llist.reverse() 
+print "\nReversed Linked List"
+llist.printList() 
+
+
+Output:
+Given linked list
+85 15 4 20 
+Reversed Linked list 
+20 4 15 85 

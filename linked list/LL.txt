@@ -1,0 +1,47 @@
+A linked list :
+is a linear data structure, in which the elements are not stored at contiguous memory locations. 
+The elements in a linked list are linked using pointers 
+
+
+In simple words, a linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
+
+Linked lists are used because of their efficient insertion and deletion.
+
+There are three common types of Linked List.
+Singly Linked List.
+Doubly Linked List.
+Circular Linked List.
+
+
+
+Advantages of LL :
+
+they can grow or shrink during the execution of a program. 
+Linked lists have efficient memory utilization. 
+Memory is allocated whenever it is required and it is de-allocated (removed) when it is no longer needed. 
+Insertion and Deletions are easier and efficient.
+
+
+
+
+Disadvantages of LL :
+
+In single link list every node contains a single pointer to represent next node So we can move only forwardly. 
+Backward movement is not possible without recursion.
+In single link list nodes are connected using a single pointer to point to the next node. 
+If the link list is accidentally destroyed then the chances of data loss after the destruction point is maximum. Data recovery is not possible.
+Extra memory space for a pointer is required with each element of the list.
+
+
+
+
+
+
+
+
+
+                                                Singly Linked List
+
+
+Single linked list is a sequence of elements in which every element has link to its next element in the sequence. 
+In any single linked list, the individual element is called as "Node". Every "Node" contains two fields, data field, and the next field.

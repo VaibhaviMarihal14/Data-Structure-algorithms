@@ -19,7 +19,7 @@ Auxiliary Space:- O(1)
 
 
 
-Program:
+Program: JAVA
 
 class BubbleSort 
 { 
@@ -54,6 +54,82 @@ class BubbleSort
 	} 
 } 
 
+
+
+
+
+
+
+
+Program : C++
+
+#include <bits/stdc++.h> 
+using namespace std; 
+
+void swap(int *xp, int *yp) 
+{ 
+	int temp = *xp; 
+	*xp = *yp; 
+	*yp = temp; 
+} 
+
+void bubbleSort(int arr[], int n) 
+{ 
+	int i, j; 
+	for (i = 0; i < n-1; i++)	 
+
+	for (j = 0; j < n-i-1; j++) 
+		if (arr[j] > arr[j+1]) 
+			swap(&arr[j], &arr[j+1]); 
+} 
+
+void printArray(int arr[], int size) 
+{ 
+	int i; 
+	for (i = 0; i < size; i++) 
+		cout << arr[i] << " "; 
+	cout << endl; 
+} 
+
+int main() 
+{ 
+	int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
+	int n = sizeof(arr)/sizeof(arr[0]); 
+	bubbleSort(arr, n); 
+	cout<<"Sorted array: \n"; 
+	printArray(arr, n); 
+	return 0; 
+} 
+
+
+
+
+
+
+Program : PYTHON
+
+def bubbleSort(arr): 
+	n = len(arr) 
+
+	for i in range(n): 
+
+		for j in range(0, n-i-1): 
+
+			if arr[j] > arr[j+1] : 
+				arr[j], arr[j+1] = arr[j+1], arr[j] 
+ 
+arr = [64, 34, 25, 12, 22, 11, 90] 
+
+bubbleSort(arr) 
+
+print ("Sorted array is:") 
+for i in range(len(arr)): 
+	print ("%d" %arr[i]), 
+
+
 Output:
 Sorted array:
 11 12 22 25 34 64 90
+
+
+
